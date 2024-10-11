@@ -11,8 +11,9 @@ body {
 }
 
 main {
-    background-color: #796293;
     color: whitesmoke;
+    background: rgb(148,32,163);
+    background: linear-gradient(90deg, rgba(148,32,163,1) 10%, rgba(54,208,167,1) 59%, rgba(65,4,92,1) 98%);
 }
 
 #barra-alta {
@@ -70,6 +71,9 @@ label {
 input {
     height: 50px;
     padding-left: 10px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: medium;
 }
