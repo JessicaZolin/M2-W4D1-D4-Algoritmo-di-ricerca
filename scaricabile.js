@@ -178,19 +178,19 @@ const ricercaLavoro = (inputTitle, inputLocation) => {
 let risultatiRicerca = document.createElement("ul")                                   // crea div (fuori da funzione altrimenti crea nuovo div ogni volta che parte la funzione)
 risultatiRicerca.id = "risultati-ricerca"                                             // aggiunge id a div
 let main = document.querySelector("main")                                             // seleziona nodo per collocare nuovo elemento
+let button = document.getElementById("button")                                        // richiama bottone
 
-
-const avvioRicercaOnClick = () => {
-  let inputTitle = document.getElementById("inputTitle").value;                         // prende i valori da input
+button.onclick = () => {                                                              // al click del bottone parte la funzione
+  let inputTitle = document.getElementById("inputTitle").value;                       // prende i valori da input
   let inputLocation = document.getElementById("inputLocation").value;
-  main.appendChild(risultatiRicerca)                                                    // colloca elemento nel DOM
+  main.appendChild(risultatiRicerca)                                                  // colloca elemento nel DOM
 
-  const risultati = ricercaLavoro(inputTitle, inputLocation)                            // richiama funzione "ricercaLavoro" definita sopra
-  console.log(risultati);                                                               // stampa in console   
-  if (risultatiRicerca.innerHTML != ""){                                                // controlla se presenti risultati stampati e li elimina
+  const risultati = ricercaLavoro(inputTitle, inputLocation)                          // richiama funzione "ricercaLavoro" definita sopra
+  console.log(risultati);                                                             // stampa in console   
+  if (risultatiRicerca.innerHTML != ""){                                              // controlla se presenti risultati stampati e li elimina
     risultatiRicerca.innerHTML = "";
   }
-  if (risultati.count !== 0) {                                                          // cicla array per stampare in HTML i risultati della ricerca o nessun risultato     
+  if (risultati.count !== 0) {                                                        // cicla array per stampare in HTML i risultati della ricerca o nessun risultato     
     for (let i = 0; i < risultati.result.length; i++) {
       const work = risultati.result[i];
       risultatiRicerca.innerHTML += "<li class='singolo-annuncio'><h5>"
@@ -202,6 +202,3 @@ const avvioRicercaOnClick = () => {
   document.getElementById("inputTitle").value = "";
   document.getElementById("inputLocation").value = "";
 }
-
-document.getElementById("button").addEventListener("click", avvioRicercaOnClick)        //collega funzione a button
-
